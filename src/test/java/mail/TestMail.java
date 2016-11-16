@@ -68,7 +68,11 @@ public class TestMail {
         driver.findElement(By.cssSelector(".gb_b.gb_db")).click();
         driver.findElement(By.cssSelector(".gb_Fa.gb_Ie")).click();
         switchWindow(driver);
-        switchWindow(driver);
+//        switchWindow(driver);
+
+
+        String name = driver.findElement(By.cssSelector(".sPxS6d")).getText();
+        assertEquals(name,"fghfgh", "test not equals");
 
     }
 
@@ -77,7 +81,7 @@ public class TestMail {
     }
 
 
-//
+
 //    @AfterClass
 //    public void closeBrowser() {
 //        if (driver != null) {

@@ -60,7 +60,8 @@
                         </property>
                         <property>
                             <name>listener</name>
-                            <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+                            <value>org.uncommons.reportng.HTMLReporter,
+                                org.uncommons.reportng.JUnitXMLReporter, utils.TestListenerCustom</value>
                         </property>
                     </properties>
                     <argLine>-Dfile.encoding=UTF-8</argLine>

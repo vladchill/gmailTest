@@ -8,8 +8,8 @@ public class TestListenerCustom extends TestListenerAdapter {
 
     @Override
     public void onTestFailure(ITestResult tr){
-        super.onTestFailure(tr);
-        AllUtlis.makeScreenshot("failure screenshot");
+        AllUtlis.makeScreenshot("failure screenshot","failure");
+//        super.onTestFailure(tr);
     }
 
 }
