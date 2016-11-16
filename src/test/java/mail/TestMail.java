@@ -1,32 +1,22 @@
-import org.junit.After;
-import org.junit.Before;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+package mail;
+
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.testng.Assert.*;
+import static utils.AllUtlis.*;
+import static utils.ReporterCustom.*;
 
-import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestMail {
-//    private static final String BASE_URL = "https://www.bing.com/";
-//    private static By formSearch = By.cssSelector("div.search_controls  div.b_searchboxForm input.b_searchbox");
-//    private static By headers = By.cssSelector("ol#b_results li .b_title h2");
-//    private static String searchText = "automotation";
 
-    private static WebDriver driver;
+    public static WebDriver driver;
     private static LoginPage loginPage;
     private final By emailLinkLocator = By.linkText("Почта");
     private final By emailLoginTitleLocator = By.cssSelector(".gb_b.gb_db");
@@ -70,19 +60,30 @@ public class TestMail {
         log("Checking mail");
         assertEquals("test theme", actTheme, "theme of the letter is different");
         assertEquals(" - test message", actMessage, "message of the letter is different");
+    }
+
+    @Test
+    public void testGmail3(){
+        String currentWindow = driver.getWindowHandle();
+        driver.findElement(By.cssSelector(".gb_b.gb_db")).click();
+        driver.findElement(By.cssSelector(".gb_Fa.gb_Ie")).click();
+        switchWindow(driver);
+        switchWindow(driver);
 
     }
 
-    private void log(String message){
-        Reporter.log(message+"<br>");
+    public static WebDriver getDriver(){
+        return driver;
     }
 
-    @AfterClass
-    public void closeBrowser() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+
+//
+//    @AfterClass
+//    public void closeBrowser() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 
 
 }
