@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.testng.Assert.*;
 
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -76,11 +77,12 @@ public class TestMail {
         Reporter.log(message+"<br>");
     }
 
-//    @After
-//    public void closeBrowser() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
+    @AfterClass
+    public void closeBrowser() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
 
 }
