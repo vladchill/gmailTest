@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.testng.Assert.*;
+
+import org.testng.Reporter;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,7 +30,7 @@ public class TestMail {
     private final By emailLinkLocator = By.linkText("Почта");
     private final By emailLoginTitleLocator = By.cssSelector(".gb_b.gb_db");
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -44,8 +46,13 @@ public class TestMail {
 
         System.out.println(driver.findElement(emailLoginTitleLocator).getAttribute("title"));
         String loginTitle = driver.findElement(emailLoginTitleLocator).getAttribute("title");
+        log("Login title is " + loginTitle);
         assertTrue(loginTitle.contains("testoviyacc123456@gmail.com"),
                 "login not contains testoviyacc123456@gmail.com");
+    }
+
+    @Test
+    public void testGmail2(){
 
         driver.findElement(By.cssSelector(".z0 div")).click();//red button
         driver.findElement(By.cssSelector(".wO textarea")).sendKeys("testoviyacc123456@gmail.com");//text field for whom
@@ -59,39 +66,21 @@ public class TestMail {
 
         String actTheme = driver.findElement(By.cssSelector(".Cp .y6 span:first-child")).getText();
         String actMessage = driver.findElement(By.cssSelector(".Cp .y6 span:last-child")).getText();
+        log("Checking mail");
         assertEquals("test theme", actTheme, "theme of the letter is different");
         assertEquals(" - test message", actMessage, "message of the letter is different");
-    }
-
-    @Test
-    public void testGmail2(){
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+    private void log(String message){
+        Reporter.log(message+"<br>");
+    }
 
 //    @After
 //    public void closeBrowser() {
 //        if (driver != null) {
 //            driver.quit();
 //        }
-
 
 
 }

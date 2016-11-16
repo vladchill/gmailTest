@@ -5,7 +5,7 @@ public class LoginPage {
     private WebDriver driver;
     private static final String BASE_URL = "https://www.google.com.ua";
 
-    private By inButton = By.cssSelector(".gb_jf");
+    private By inButton = By.cssSelector("#gb_70");
     private By userNameLocator = By.id("Email");
     private By nextButtonLocator = By.id("next");
     private By userPasswordLocator = By.id("Passwd");
