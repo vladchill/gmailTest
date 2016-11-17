@@ -12,6 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <selenium.version>2.53.1</selenium.version>
+        <suiteFile>testng.xml</suiteFile>
     </properties>
 
     <dependencies>
@@ -64,6 +65,9 @@
                                 org.uncommons.reportng.JUnitXMLReporter, utils.TestListenerCustom</value>
                         </property>
                     </properties>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
 
                 </configuration>
