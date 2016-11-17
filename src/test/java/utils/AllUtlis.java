@@ -1,6 +1,7 @@
 package utils;
 
 
+import mail.BaseTest;
 import mail.TestMail;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -40,7 +41,7 @@ public class AllUtlis {
         String imageName = screenshotName + System.currentTimeMillis() + ".png";
         String path = ".\\target\\screenshots\\";//System.getProperty("image.dir") + File.separatorChar + "html" + File.separatorChar;
         try {
-            File screenshotAs = ((TakesScreenshot) TestMail.getDriver()).getScreenshotAs(OutputType.FILE);//future change bfore driver
+            File screenshotAs = ((TakesScreenshot) BaseTest.getDriver()).getScreenshotAs(OutputType.FILE);//future change bfore driver
             FileUtils.copyFile(screenshotAs, new File(path + imageName));
             log("<a href='" + imageName + "'><img src='" + imageName + "' width='600'/></a>");
         } catch (Exception e) {

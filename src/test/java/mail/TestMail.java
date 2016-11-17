@@ -14,19 +14,11 @@ import pages.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestMail {
+public class TestMail extends BaseTest{
 
-    public static WebDriver driver;
-    private static LoginPage loginPage;
+
     private final By emailLinkLocator = By.linkText("Почта");
     private final By emailLoginTitleLocator = By.cssSelector(".gb_b.gb_db");
-
-    @BeforeClass
-    public void setUp() {
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        loginPage = new LoginPage(driver);
-    }
 
 
     @Test
@@ -70,24 +62,11 @@ public class TestMail {
         switchWindow(driver);
 //        switchWindow(driver);
 
-
         String name = driver.findElement(By.cssSelector(".sPxS6d")).getText();
-        assertEquals(name,"fghfgh", "test not equals");
+        assertEquals(name,"fghfgh", "test not equals");// assert for forged fail to test screenshot
 
     }
 
-    public static WebDriver getDriver(){
-        return driver;
-    }
-
-
-
-//    @AfterClass
-//    public void closeBrowser() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
 
 
 }
