@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     public static WebDriver driver;
-    protected static LoginPage loginPage;
+//    protected static LoginPage loginPage;
 
     public static WebDriver getDriver(){
         return driver;
@@ -22,7 +22,6 @@ public class BaseTest {
     public void setUp() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        loginPage = new LoginPage(driver);
     }
 
 //    @AfterClass
