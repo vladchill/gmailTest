@@ -8,9 +8,13 @@
 
     <test name="TestNG logs sample" preserve-order="true">
         <classes>
-            <class name="mail.TestMail">
+            <class name="mail.TestLoginPage">
+
+            </class>
+            <class name="mail.TestMailPage">
                 <methods>
-                    <include name="testGmail1" />
+                    <include name="testEmailSendReceive"/>
+                    <include name="testChangeWindowsFocus"/>
                 </methods>
             </class>
         </classes>
